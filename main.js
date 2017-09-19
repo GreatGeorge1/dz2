@@ -111,9 +111,13 @@
 		{
 			for (let i=0; i < phones.length; i++) 
 			{
+				let temuchin=priceSort(phones);
 				if(Math.abs(money-phones[i].Price)<=50)
 				{
 					selection.push(phones[i]);
+				}
+				else if(money>temuchin[0].Price){
+					selection.push(temuchin[0]);
 				}
 			}
 			if(selection.length==0){
