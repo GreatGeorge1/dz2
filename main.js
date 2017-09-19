@@ -155,5 +155,8 @@
 				}
 			}
 		}
+		if(money==null){
+			flag=false;
+		}
 	}while(flag==true);
 })();
