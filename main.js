@@ -103,7 +103,7 @@
 	generatePhones();
 	console.log(phones);
 
-	let flag;
+	let flag=false;
 	do{
 		let money =prompt("Введите сумму","");
 		let selection=new Array();
@@ -116,9 +116,13 @@
 					selection.push(phones[i]);
 				}
 			}
+			if(selection.length==0){
+				let tmp=priceSort(phones);
+				alert("Минимальная цена "+tmp[tmp.length-1].price);
+				flag=true;
+			}
 		}
-
-		if(selection!=null)
+		if(selection.length!=0)
 		{
 			selection =priceSort(selection);
 			console.log(selection);
@@ -132,8 +136,12 @@
 						flag=false;
 						break;
 					}else{
-						if(!confirm("Выйти")){
+						if(confirm("Выйти")){
+							flag=false;
+							break;
+						}else{
 							flag=true;
+							break;
 						}
 					}
 				}else{
@@ -147,5 +155,5 @@
 				}
 			}
 		}
-	}while(flag);
+	}while(flag==true);
 })();
